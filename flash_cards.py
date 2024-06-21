@@ -469,4 +469,4 @@ def mark_unknown(card_id, card_type):
     return redirect(url_for('memorize_known', card_type=card_type))
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0')
+    app.run(host='0.0.0.0', port=80)
