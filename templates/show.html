@@ -29,7 +29,11 @@
                 {% if card.type == 1 %}
                     {{ card.back|replace("\n", "<br />")|safe }}
                 {% else %}
-                    <pre><code>{{ card.back|escape }}</code></pre>
+                    {% if 'http://' in card.back or 'https://' in card.back %}
+                        <img src="{{ card.back }}" alt="Image" style="max-width: 100%; height: auto;">
+                    {% else %}
+                        <pre><code>{{ card.back|escape }}</code></pre>
+                    {% endif %}
                 {% endif %}
             </td>
         </tr>
